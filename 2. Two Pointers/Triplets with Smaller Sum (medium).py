@@ -34,4 +34,25 @@ def triplet_with_smaller_sum(arr, target):
               high -= 1
   return count
 
+def triplet_with_smaller_sum_2(arr, target):
+  triplets = []
+  arr.sort()
+
+  for i in range(len(arr)):
+      low = i + 1
+      high = len(arr) - 1
+      remain = target - arr[i]
+      while low < high:
+          print('low is: ', arr[low])
+          print('high is: ', arr[high])
+
+          if arr[low] + arr[high] < remain:
+              for j in range(high, low, -1):
+                  triplets.append([arr[i], arr[low], arr[j]])
+              low += 1
+          else:
+              high -= 1
+  return triplets
+
 print(triplet_with_smaller_sum([-1, 0, 2, 3], target=3))
+print(triplet_with_smaller_sum_2([-1, 0, 2, 3], target=3))
