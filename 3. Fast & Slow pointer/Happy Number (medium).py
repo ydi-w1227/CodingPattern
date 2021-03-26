@@ -50,6 +50,9 @@ def find_happy_number(num):
     return False
 
 def count_sqrt_1(num):
+    # O(logN)
+    # -> https://stackoverflow.com/questions/50261364/explain-why-time-complexity-for-summing-digits-in-a-number-of-length-n-is-ologn
+    # -> https://stackoverflow.com/questions/58977656/how-to-understand-time-complexity-of-happy-number-problem-solution-from-leetcode
     current_sum = 0
     while num > 0:
         digit = num % 10
@@ -64,10 +67,30 @@ def count_sqrt_2(num):
         current_sum += math.sqrt(digit)
     return current_sum
 
+# from wiki
+def ishappy(n):
+    a = []
+    while n not in a:
+        a.append(n)
+        n = sum([int(x) ** 2 for x in str(n)])
+
+    return 'happy' if n == 1 else 'unhappy'
+
+def find_happy_number_2(num):
+    check = set()
+    while num not in check:
+        check.add(num)
+        num = count_sqrt_1(num)
+        if num == 1:
+            return True
+    return False
 
 def main():
     print(find_happy_number(23))
-    # print(find_happy_number(12))
+    print(find_happy_number_2(23))
+    print(find_happy_number(12))
+    print(find_happy_number_2(12))
+
 
 
 main()
