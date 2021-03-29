@@ -31,6 +31,10 @@ class Node:
         return string
 
 def is_palindromic_linked_list(head):
+    # edge case
+    if head is None or head.next is None:
+        return True
+
     slow, fast = head, head
     if slow.next is None:
         return False
