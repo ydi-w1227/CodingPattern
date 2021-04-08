@@ -54,6 +54,10 @@ def merge(intervals):
 
         else:
             # there is overlap
+            # i.e. when merged[-1].start definitely < interval.start
+            # if interval.start <= merged[-1].end,
+            # that is, interval starts before merged[-1] finished..
+            # then definitely there is overlap
             mergedIntervals[-1].end = max(interval.end, mergedIntervals[-1].end)
 
     return mergedIntervals
