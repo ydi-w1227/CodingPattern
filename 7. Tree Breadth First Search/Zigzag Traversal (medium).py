@@ -21,7 +21,6 @@ def traverse(root):
     queue = deque()
     queue.append(root)
 
-    level = 1
     while queue:
         levelSize = len(queue)
         levelNode = deque()
