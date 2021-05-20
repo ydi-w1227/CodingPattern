@@ -35,7 +35,7 @@ def hasPathSum(root, target):
     stk = [(root, root.val)]
 
     while stk:
-        node, val = stk.pop()
+        node, val = stk.pop(0)
         print('node:' , node.val, ', val', val)
 
 
@@ -57,7 +57,7 @@ def main():
     root.left.right = TreeNode(8)
     root.right.left = TreeNode(10)
     root.right.right = TreeNode(5)
-    print("Tree has path: " + str(has_path(root, 23)))
+    print("Tree has path: " + str(hasPathSum(root, 23)))
     # print("Tree has path: " + str(has_path(root, 16)))
 
 
