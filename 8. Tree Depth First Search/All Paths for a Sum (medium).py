@@ -53,7 +53,7 @@ def find_paths_recursive_2(currentNode, sum, currentPath, allPaths):
     if currentNode is None:
         return
 
-    print('currentNode: ', currentNode.val, ' current sum: ', sum)
+    print('..currentNode: ', currentNode.val, ' current sum: ', sum)
     print('currentPath: ', currentPath)
 
     if currentNode.left is None and currentNode.right is None and sum == currentNode.val:
@@ -63,9 +63,9 @@ def find_paths_recursive_2(currentNode, sum, currentPath, allPaths):
         print('allpath is ', allPaths)
     else:
         print('traverse left subtree')
-        find_paths_recursive(currentNode.left, sum - currentNode.val, currentPath + [currentNode.val], allPaths)
+        find_paths_recursive_2(currentNode.left, sum - currentNode.val, currentPath + [currentNode.val], allPaths)
         print('traverse right subtree')
-        find_paths_recursive(currentNode.right, sum - currentNode.val, currentPath + [currentNode.val], allPaths)
+        find_paths_recursive_2(currentNode.right, sum - currentNode.val, currentPath + [currentNode.val], allPaths)
 
 def dfs(root, sum, ls, res):
     if root:
@@ -155,9 +155,11 @@ def main():
     root.right.left = TreeNode(10)
     root.right.right = TreeNode(5)
     sum = 23
+    print("Tree paths with sum " + str(sum) +
+        ": " + str(find_paths(root, sum)))
     # print("Tree paths with sum " + str(sum) +
     #     ": " + str(find_paths_2(root, sum)))
     # print("Tree all paths are: " + str(find_all_paths(root)))
-    print("Tree all paths are: " + str(find_path_max(root)))
+    # print("Tree all paths are: " + str(find_path_max(root)))
 
 main()

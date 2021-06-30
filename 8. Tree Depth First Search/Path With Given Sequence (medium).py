@@ -33,7 +33,7 @@ def path_exists(currentNode, sequence, index):
     if index >= seqLen or currentNode.val != sequence[index]:
         return False
 
-    # if current node is leaf and already traverse the whole sequence
+    # if current node is leaf and already traverse the whole sequence and all values matched
     if currentNode.left is None and currentNode.right is None and index == seqLen - 1:
         return True
 
@@ -52,6 +52,7 @@ def main():
     root.left.left = TreeNode(1)
     root.right.left = TreeNode(6)
     root.right.right = TreeNode(5)
+    root.right.right.right = TreeNode(7)
 
     print("Tree has path sequence: " + str(find_path(root, [1, 0, 7])))
     print("Tree has path sequence: " + str(find_path(root, [1, 1, 6])))
