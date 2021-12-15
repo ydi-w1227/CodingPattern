@@ -3,6 +3,9 @@
 # Please note that the paths can start or end at any node
 # but all paths must follow direction from parent to child (top to bottom).
 
+
+# add path from top to bottom
+# every path calculate sum of all subpaths from bottom to top..
 class TreeNode:
     def __init__(self, val, left=None, right=None):
         self.val = val
@@ -50,7 +53,7 @@ def main():
     root.left.left = TreeNode(4)
     root.right.left = TreeNode(10)
     root.right.right = TreeNode(5)
-    print("Tree has paths: " + str(count_paths(root, 11)))
+    print("Tree has paths: " + str(count_paths(root, 6)))
 
 
 main()
