@@ -13,6 +13,9 @@
 #               Similarly, the next interval of [3,4] is [5,6] having index ‘2’.
 #               There is no next interval for [5,6] hence we have ‘-1’.
 
+# heapq is a binary heap, with O(log n) push and O(log n) pop .
+# O(n log n) to push all the items onto the heap
+
 from heapq import *
 
 class Interval:
