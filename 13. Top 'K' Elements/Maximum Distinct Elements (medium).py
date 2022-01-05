@@ -24,6 +24,17 @@
 # Output: 3
 # Explanation: We can remove one occurrence of '4' to get three distinct numbers.
 
+
+# think in a way that following method
+# worth case is at least # of K numbers with frequency = 2.. hence we need to push and extract from heap K times..
+#   i.e. each of them minus 1, then will be considered as a distinct number and K will be 0 in the end with max result
+#        in this case, N >= 2 * K => all K numbers appear twice which equals to N or there are some extra cases with 1 frequency..
+#           say, we have N numbers, in this case, we only push number with frequency > 1 into heap
+#                                   technically we have N / 2 distinct numbers and each of them appears twice
+#   so we need to push all those N/2 pairs of (frequency, value) into heap => N/2 nodes => extract from heap => O(logN)
+
+# but if we optimize this code, and only push K numbers into heap, then will be O(logK).. because there are K nodes in heap
+
 from heapq import *
 
 
