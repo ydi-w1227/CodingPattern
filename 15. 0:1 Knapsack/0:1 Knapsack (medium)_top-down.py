@@ -6,6 +6,11 @@
 #       -> end goal is to make capacity as closer to 0 as possible
 #                        or till the last elements in array
 
+# In the top-down approach, a complex algorithm is broken down into smaller fragments,
+# better known as ‘modules.’
+# These modules are then further broken down into smaller fragments until they can no longer be fragmented.
+# This process is called ‘modularization.
+
 
 def solve_knapsack(profits, weights, capacity):
     # create a two dimensional array for Memoization, each element is initialized to '-1'
